@@ -1,4 +1,6 @@
 import WindowWrapper from "#hoc/WindowWrapper";
+import { techStack } from "#constants";
+import { Check, Flag } from "lucide-react";
 
 const Terminal = () => {
     return (
@@ -8,14 +10,46 @@ const Terminal = () => {
                 <p>Tech Stack</p>
             </div>
 
-            <div className="tech-stack-container">
+            <div className="techstack">
                 <p>
-                    <span className="font-bold">@ahmedrasheed</span>
+                    <span className="font-bold">@ahmedrasheed </span>
                     Show tech stack
                 </p>
+
+                <div className="label">
+                    <p className="w-32">Category</p>
+                    <p>Technologies</p>
+                </div>
+
+                <ul className="content">
+                    {techStack.map(({ category, items }) => (
+                        <li key={category} className="flex items-center">
+                            <Check className="check" size={20} />
+                            <h3>{category}</h3>
+                            <ul>
+                                {items.map((item, i) => (
+                                    <li key={i}>{item}{i < items.length - 1 ? "," : ""}</li>
+                                ))}
+                            </ul>
+                        </li>
+                    ))}
+                </ul>
+
+                <div className="footnote">
+                    <p>
+                        <Check size={20} /> 5 of 5 stacks loaded successfully
+                        (100%)
+                    </p>
+
+                    <p className="text-black">
+                        <Flag size={15} fill="black"/>
+                        Render time: 6ms
+                    </p>
+                </div>
             </div>
         </>
     );
-}
+};
+
 const TerminalWindow = WindowWrapper(Terminal, "terminal");
 export default TerminalWindow;
