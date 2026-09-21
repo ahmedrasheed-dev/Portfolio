@@ -2,6 +2,8 @@
 
 An interactive macOS-inspired developer portfolio built with React 19, Tailwind CSS v4, and GSAP.
 
+🔗 **Live Link**: [ahmedrasheed.vercel.app](https://ahmedrasheed.vercel.app/)
+
 ## Overview
 
 This project recreates a macOS desktop layout inside the browser. It includes interactive app windows (Finder, Terminal, Safari, Photos), an animated desktop Dock with magnification physics, a top navigation bar with a live clock, and GSAP text weight interactions.
