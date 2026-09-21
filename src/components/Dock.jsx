@@ -4,8 +4,10 @@ import { Tooltip } from "react-tooltip";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import useWindowStore from "#store/window";
 
 export const Dock = () => {
+  const { openWindow, windows, closeWindow } = useWindowStore();
   const dockRef = useRef(null);
 
   useGSAP(() => {
@@ -15,8 +17,8 @@ export const Dock = () => {
     const icons = dock.querySelectorAll(".dock-icon");
 
     const animateIcons = (mouseX) => {
-      const { left } = dock.getBoundingClientRect(); 
-      
+      const { left } = dock.getBoundingClientRect();
+
       let closestIcon = null;
       let minDistance = Infinity;
 
@@ -31,7 +33,7 @@ export const Dock = () => {
         }
       });
 
-    
+
       icons.forEach((icon) => {
         if (icon === closestIcon) {
           gsap.to(icon, {
@@ -77,6 +79,17 @@ export const Dock = () => {
 
   const toggleApp = (app) => {
     console.log("Opening app:", app);
+    if (!app.canOpen) return;
+
+    const window = windows[app.id];
+
+    if (window.isOpen) {
+      closeWindow(app.id);
+    }
+    else {
+      openWindow(app.id);
+    }
+    console.log(windows)
   };
 
   return (
@@ -98,9 +111,8 @@ export const Dock = () => {
                 src={`/images/${icon}`}
                 alt={name}
                 loading="lazy"
-                className={`w-[50px] h-[50px] object-contain ${
-                  canOpen ? "" : "opacity-60"
-                }`}
+                className={`w-[50px] h-[50px] object-contain ${canOpen ? "" : "opacity-60"
+                  }`}
               />
             </button>
           </div>
