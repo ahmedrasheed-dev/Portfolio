@@ -78,7 +78,7 @@ const WindowWrapper = (Component, windowKey) => {
         if (isMaximized) {
             stateClasses += "!fixed !top-[40px] !left-0 !w-full !h-[calc(100vh-120px)] !max-w-none !max-h-none !rounded-none !transform-none z-[998]";
         } else {
-            stateClasses += "transition-all duration-200 ease-out";
+            stateClasses += "transition-all duration-100 ease-out";
         }
 
         return (
