@@ -18,7 +18,7 @@ const ImageFile = () => {
                 <p>{name}</p>
             </div>
 
-            <div className="p-5 bg-white">
+            <div className="preview bg-gray-100 dark:bg-neutral-950 p-5 flex items-center justify-center">
                 {imgSrc && (
                     <img
                         src={imgSrc}

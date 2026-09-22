@@ -34,10 +34,10 @@ const Safari = () => {
 
 
             <div className="blog">
-                <h2>My Developer Blog</h2>
+                <h2>Coding Profiles & DSA Highlights</h2>
 
                 <div className="space-y-8">
-                    {blogPosts.map(({ id, image, title, date, link }) => (
+                    {blogPosts.map(({ id, image, title, subtitle, date, link, buttonText }) => (
                         <div key={id} className="blog-post">
                             <div className="col-span-2">
                                 <img src={image} alt={title}
@@ -48,9 +48,9 @@ const Safari = () => {
                             <div className="content">
                                 <p>{date}</p>
                                 <h3>{title}</h3>
+                                {subtitle && <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 mb-2">{subtitle}</p>}
                                 <a href={link} target="_blank" rel="noopener noreferrer">
-                                    Check out the full post <MoveRight
-                                        className="icon-hover" />
+                                    {buttonText || "Check out profile"} <MoveRight className="icon-hover inline ml-1" size={16} />
                                 </a>
                             </div>
                         </div>
