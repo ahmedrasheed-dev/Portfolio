@@ -26,7 +26,8 @@ const Finder = () => {
 
         </div>
     )
-    const openItem = (item) => {
+    const openItem = (e, item) => {
+        e.stopPropagation();
         const type = item.fileType || item.filetype;
         if (type === 'pdf') return openWindow("resume", item);
         if (type === 'txt') return openWindow("txtfile", item);
@@ -41,7 +42,7 @@ return (
             <Search className="icon" />
         </div>
 
-        <div className="bg-white flex h-full">
+        <div className="bg-white dark:bg-neutral-900 flex flex-1 h-full overflow-hidden">
             <div className="sidebar">
                 {renderList("Favorites", Object.values(locations))}
                 {renderList("Work", locations.work.children)}
@@ -51,7 +52,7 @@ return (
                     <li
                         key={item.id}
                         className={item.position}
-                        onClick={() => openItem(item)}
+                        onClick={(e) => openItem(e, item)}
                     >
 
                         <img src={item.icon} alt={item.name} />

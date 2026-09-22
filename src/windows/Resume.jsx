@@ -74,7 +74,7 @@ const Resume = () => {
                 </a>
             </div>
 
-            <div className="w-[600px] h-[800px] max-h-[80vh] overflow-y-auto overflow-x-hidden bg-gray-100 dark:bg-neutral-950 flex justify-center">
+            <div className="w-full flex-1 overflow-y-auto overflow-x-hidden bg-gray-100 dark:bg-neutral-950 flex justify-center p-4">
                 <Document file="files/resume.pdf" loading={<ResumeSkeleton />}>
                     <Suspense fallback={<ResumeSkeleton />}>
                         <Page pageNumber={1} renderTextLayer renderAnnotationLayer width={580} />

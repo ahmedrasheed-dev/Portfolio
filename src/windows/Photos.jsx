@@ -15,8 +15,8 @@ const Photos = () => {
                 <Search className="icon" />
             </div>
 
-            <div className="flex h-[450px]">
-                <div className="sidebar w-[150px]">
+            <div className="flex flex-1 h-full overflow-hidden">
+                <div className="sidebar w-[150px] shrink-0">
                     <h2>Photos</h2>
                     <ul>
                         {photosLinks?.map(({ id, icon, title }) => (
@@ -28,13 +28,16 @@ const Photos = () => {
                     </ul>
                 </div>
 
-                <div className="gallery flex-1 overflow-y-auto w-[45vw]">
+                <div className="gallery flex-1 overflow-y-auto">
                     <ul>
                         {gallery.map(({ id, img }) => (
                             <li
                                 key={id}
                                 className="cursor-pointer transition-transform hover:scale-[1.02]"
-                                onClick={() => openWindow("imgfile", { name: `Photo ${id}`, imageUrl: img })}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    openWindow("imgfile", { name: `Photo ${id}`, imageUrl: img });
+                                }}
                             >
                                 <img src={img} alt={`Gallery ${id}`} />
                             </li>

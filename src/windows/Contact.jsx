@@ -10,7 +10,7 @@ const Contact = () => {
                 <h2>Contact Me</h2>
             </div>
 
-            <div className="p-5 space-y-5">
+            <div className="p-6 space-y-5 flex-1 overflow-y-auto bg-white dark:bg-neutral-900">
                 <img src="/images/ahmed.jpg" alt="Ahmed"
                     className="w-20 rounded-full"
                 />

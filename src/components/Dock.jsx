@@ -6,9 +6,39 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import useWindowStore from "#store/window";
 
+const DYNAMIC_DOCK_APPS = {
+  txtfile: {
+    id: "txtfile",
+    name: "Text Document",
+    icon: "txt.png",
+    canOpen: true,
+  },
+  imgfile: {
+    id: "imgfile",
+    name: "Image Preview",
+    icon: "image.png",
+    canOpen: true,
+  },
+  resume: {
+    id: "resume",
+    name: "Resume.pdf",
+    icon: "pdf.png",
+    canOpen: true,
+  },
+};
+
 export const Dock = () => {
-  const { openWindow, windows, closeWindow } = useWindowStore();
+  const { openWindow, windows, minimizeWindow } = useWindowStore();
   const dockRef = useRef(null);
+
+  const dynamicApps = Object.keys(DYNAMIC_DOCK_APPS)
+    .filter((key) => windows[key]?.isOpen)
+    .map((key) => ({
+      ...DYNAMIC_DOCK_APPS[key],
+      name: windows[key]?.data?.name || DYNAMIC_DOCK_APPS[key].name,
+    }));
+
+  const allDockApps = [...dockApps, ...dynamicApps];
 
   useGSAP(() => {
     const dock = dockRef.current;
@@ -32,7 +62,6 @@ export const Dock = () => {
           closestIcon = icon;
         }
       });
-
 
       icons.forEach((icon) => {
         if (icon === closestIcon) {
@@ -75,31 +104,27 @@ export const Dock = () => {
       dock.removeEventListener("mousemove", handleMouseMove);
       dock.removeEventListener("mouseleave", resetIcons);
     };
-  }, []);
+  }, [dynamicApps.length]);
 
   const toggleApp = (app) => {
-    console.log("Opening app:", app);
     if (!app.canOpen) return;
 
-    const window = windows[app.id];
-
-    if (window.isOpen) {
-      closeWindow(app.id);
-    }
-    else {
+    const win = windows[app.id];
+    if (win?.isOpen && !win?.isMinimized) {
+      minimizeWindow(app.id);
+    } else {
       openWindow(app.id);
     }
-    console.log(windows)
   };
 
   return (
     <section id="dock">
       <div ref={dockRef} className="dock-container flex gap-1.5 justify-center">
-        {dockApps.map(({ id, name, icon, canOpen }) => (
-          <div key={id} className="relative flex justify-center">
+        {allDockApps.map(({ id, name, icon, canOpen }) => (
+          <div key={id} className="relative flex justify-center items-center">
             <button
               type="button"
-              className="dock-icon transition-all"
+              className="dock-icon transition-all relative flex flex-col items-center justify-center"
               aria-label={name}
               data-tooltip-id="dock-tooltip"
               data-tooltip-content={name}
@@ -111,9 +136,13 @@ export const Dock = () => {
                 src={`/images/${icon}`}
                 alt={name}
                 loading="lazy"
-                className={`w-[50px] h-[50px] object-contain ${canOpen ? "" : "opacity-60"
-                  }`}
+                className={`w-[50px] h-[50px] object-contain ${
+                  canOpen ? "" : "opacity-60"
+                }`}
               />
+              {windows[id]?.isOpen && (
+                <span className="absolute -bottom-1 size-1 rounded-full bg-white shadow dark:bg-white" />
+              )}
             </button>
           </div>
         ))}

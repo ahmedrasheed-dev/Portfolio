@@ -11,7 +11,8 @@ gsap.registerPlugin(Draggable)
 
 function App() {
   return (
-    <main>
+    <main className="relative w-dvw h-dvh overflow-hidden">
+      <div id="desktop-bounds" className="absolute top-[40px] bottom-[80px] left-0 right-0 pointer-events-none" />
       <Navbar />
       <Welcome />
       <Dock />
