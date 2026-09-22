@@ -34,6 +34,7 @@ const navIcons = [
   {
     id: 4,
     img: "/icons/mode.svg",
+    type: "mode",
   },
 ];
 
