@@ -22,9 +22,11 @@ const WindowWrapper = (Component, windowKey) => {
                 { scale: 1, opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }
             );
 
-            Draggable.create(el, {
+            const [instance] = Draggable.create(el, {
                 onPress: () => focusWindow(windowKey),
             });
+            
+            return () => instance.kill();
         }, [isOpen]);
 
         if (!isOpen) return null;
