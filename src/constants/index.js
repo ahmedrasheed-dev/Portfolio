@@ -1,10 +1,6 @@
-const navlinks = [
-  { id: 1, name: "Portfolio" },
-  { id: 2, name: "Contact" },
-  { id: 3, name: "Project" },
-];
 
-const navLinks = [
+
+const navlinks = [
   {
     id: 1,
     name: "Projects",
@@ -212,7 +208,6 @@ const gallery = [
 
 export {
   navlinks,
-  navLinks,
   navIcons,
   dockApps,
   blogPosts,
