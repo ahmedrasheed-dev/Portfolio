@@ -192,24 +192,6 @@ const photosLinks = [
   },
 ];
 
-// const gallery = [
-//   {
-//     id: 1,
-//     img: "/images/gal1.png",
-//   },
-//   {
-//     id: 2,
-//     img: "/images/gal2.png",
-//   },
-//   {
-//     id: 3,
-//     img: "/images/gal3.png",
-//   },
-//   {
-//     id: 4,
-//     img: "/images/gal4.png",
-//   },
-// ];
 const gallery = [
 ];
 
@@ -415,7 +397,7 @@ const WORK_LOCATION = {
           icon: "/images/txt.png",
           kind: "file",
           fileType: "txt",
-          position: "top-5 left-10",
+          position: "top-6 left-6",
           description: [
             "Snappix is a high-performance, full-stack video-sharing platform.",
             "It leverages a modern tech stack including React, Redux Toolkit, Node.js, Express, and MongoDB.",
@@ -430,7 +412,7 @@ const WORK_LOCATION = {
           kind: "file",
           fileType: "url",
           href: "https://github.com/ahmedrasheed-dev/Snappix",
-          position: "top-10 right-20",
+          position: "top-6 left-48",
         },
         // {
         //   id: 4,
@@ -530,7 +512,7 @@ const WORK_LOCATION = {
           icon: "/images/txt.png",
           kind: "file",
           fileType: "txt",
-          position: "top-5 left-10",
+          position: "top-6 left-6",
           description: [
             "TrueFeedback is an anonymous feedback web application designed for secure and honest communication.",
             "It is built entirely on the Next.js framework, ensuring excellent SEO, fast server-side rendering, and a smooth UX.",
@@ -545,16 +527,43 @@ const WORK_LOCATION = {
           kind: "file",
           fileType: "url",
           href: "https://github.com/ahmedrasheed-dev/TrueFeedback",
-          position: "top-10 right-20",
+          position: "top-6 left-48",
         },
         {
           id: 4,
-          name: "truefeedback.png",
-          icon: "/images/image.png",
+          name: "truefeedback1.png",
+          icon: "/images/TrueFeedback1.png",
           kind: "file",
           fileType: "img",
-          position: "top-52 right-80",
-          imageUrl: "/images/project-truefeedback.png",
+          position: "top-6 left-[360px]",
+          imageUrl: "/images/TrueFeedback1.png",
+        },
+        {
+          id: 5,
+          name: "truefeedback2.png",
+          icon: "/images/TrueFeedback2.png",
+          kind: "file",
+          fileType: "img",
+          position: "top-44 left-6",
+          imageUrl: "/images/TrueFeedback2.png",
+        },
+        {
+          id: 6,
+          name: "truefeedback3.png",
+          icon: "/images/TrueFeedback3.png",
+          kind: "file",
+          fileType: "img",
+          position: "top-44 left-48",
+          imageUrl: "/images/TrueFeedback3.png",
+        },
+        {
+          id: 7,
+          name: "truefeedback4.png",
+          icon: "/images/TrueFeedback4.png",
+          kind: "file",
+          fileType: "img",
+          position: "top-44 left-[360px]",
+          imageUrl: "/images/TrueFeedback4.png",
         },
       ],
     },
@@ -574,7 +583,7 @@ const WORK_LOCATION = {
           icon: "/images/txt.png",
           kind: "file",
           fileType: "txt",
-          position: "top-5 left-10",
+          position: "top-6 left-6",
           description: [
             "A dynamic real-time chat application built to facilitate instant messaging and live user interactions.",
             "Leverages WebSocket technology to ensure low-latency communication and instant message delivery without page reloads.",
@@ -589,16 +598,16 @@ const WORK_LOCATION = {
           kind: "file",
           fileType: "url",
           href: "https://github.com/ahmedrasheed-dev/RealTimeChat-App",
-          position: "top-10 right-20",
+          position: "top-6 left-48",
         },
         {
           id: 4,
           name: "chat-app.png",
-          icon: "/images/image.png",
+          icon: "/images/snapit.png",
           kind: "file",
           fileType: "img",
-          position: "top-52 right-80",
-          imageUrl: "/images/project-chatapp.png",
+          position: "top-6 left-[360px]",
+          imageUrl: "/images/snapit.png",
         },
       ],
     },
