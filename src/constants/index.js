@@ -420,7 +420,7 @@ const WORK_LOCATION = {
           icon: "/images/home.png",
           kind: "file",
           fileType: "img",
-          position: "top-52 right-80",
+          position: "top-6 left-[360px]",
           imageUrl: "/images/home.png",
         },
         {
@@ -429,7 +429,7 @@ const WORK_LOCATION = {
           icon: "/images/videopage.png",
           kind: "file",
           fileType: "img",
-          position: "top-52 right-80",
+          position: "top-44 left-6",
           imageUrl: "/images/videopage.png",
         },
         {
@@ -438,7 +438,7 @@ const WORK_LOCATION = {
           icon: "/images/UserChannel.png",
           kind: "file",
           fileType: "img",
-          position: "top-52 right-80",
+          position: "top-44 left-48",
           imageUrl: "/images/UserChannel.png",
         },
         {
@@ -447,7 +447,7 @@ const WORK_LOCATION = {
           icon: "/images/TweetsPage.png",
           kind: "file",
           fileType: "img",
-          position: "top-52 right-80",
+          position: "top-44 left-[360px]",
           imageUrl: "/images/TweetsPage.png",
         },
         {
@@ -456,7 +456,7 @@ const WORK_LOCATION = {
           icon: "/images/dashboard.png",
           kind: "file",
           fileType: "img",
-          position: "top-52 right-80",
+          position: "top-80 left-6",
           imageUrl: "/images/dashboard.png",
         },
       ],
